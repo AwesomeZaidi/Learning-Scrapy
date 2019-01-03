@@ -4,7 +4,7 @@ import scrapy
 
 class AuthorsSpider(scrapy.Spider):
     name = "authors"
-    start_urls = ['http://quotes.toscrape.com']
+    start_urls = ['http://quotes.toscrape.com/api/quotes?page=6]
 
     def parse(self, response):
         urls = response.css('div.quote > span > a::attr(href)').extract()
