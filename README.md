@@ -48,8 +48,14 @@ tutorial/
 To put our spider to work, go to the project’s top level directory and run:
 `scrapy crawl quotes`
 
+`scrapy runspider filename.py`
+
+(Additionally, you can generate a spider by running: `scrapy genspider spidername domain.com`)
+
 `scrapy shell url` downloads the page from the url we just passed and provides us with a response object that we can use to access the data from the page. For example, `print(response.text)` gives us the whole page content.
 
 We can use the response.css('selector') method to return the elements matched by this selector. This at a basic implementation will return the Selector object inside. We can use the `extract()` method on such an object to get the actual HTML data we selected. To get rid of the HTML tags, after the selector name within the qoutes we add a double colon text `::text` and we want just a string not a list so we can target `[0].extract()` or even better, `.extract_first() which will return None if nothing is found instead of throwing an error.`
 
 https://code.tutsplus.com/tutorials/the-30-css-selectors-you-must-memorize--net-16048
+
+## The Parse method
